@@ -1,0 +1,9 @@
+# Activa el motor de reescritura de URLs
+RewriteEngine On
+
+# Si la solicitud no es para un archivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+# Y si la solicitud no es para un directorio existente
+RewriteCond %{REQUEST_FILENAME} !-d
+# Entonces, redirige todas las solicitudes a tu archivo index.php dentro de la carpeta 'publico'
+RewriteRule ^(.*)$ publico/index.php [L,QSA]
